@@ -1,0 +1,31 @@
+---
+language: python
+python:
+  - "2.7"
+
+env:
+  - ANSIBLE_VERSION=latest
+  - ANSIBLE_VERSION=1.9.0.1
+  - ANSIBLE_VERSION=1.8
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get -y install python-pip python3-setuptools
+  - sudo easy_install3 pip
+  - sudo rm /usr/local/bin/pip    # which is pip3 and prior to /usr/bin/pip
+  - test "$(sudo which pip)" = "/usr/bin/pip"
+  - test "$(sudo which pip3)" = "/usr/local/bin/pip3"
+  - /usr/bin/pip --version
+  - /usr/local/bin/pip3 --version
+
+install:
+  - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
+
+before_script:
+  - cd tests
+  - ansible --version
+  - ansible all -i inventory -m setup
+
+script:
+  - ansible-playbook test.yml -i inventory --syntax-check
+  - ansible-playbook test.yml -i inventory --sudo -vv
