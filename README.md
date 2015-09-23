@@ -2,6 +2,7 @@ itiut.pip-packages
 =========
 
 [![Build Status](https://travis-ci.org/itiut/ansible-role-pip-packages.svg?branch=master)](https://travis-ci.org/itiut/ansible-role-pip-packages)
+[![Ansible Role](https://img.shields.io/ansible/role/5234.svg)](https://galaxy.ansible.com/list#/roles/5234)
 
 Ansible role for configuring pip packages.
 
