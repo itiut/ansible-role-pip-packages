@@ -1,0 +1,9 @@
+---
+# default install state: present | latest
+pip_packages_default_install_state: present
+# packages to install
+pip_packages_install: []
+# packages to remove
+pip_packages_remove: []
+# executable name or path of pip (e.g. pip3)
+pip_packages_executable: ''

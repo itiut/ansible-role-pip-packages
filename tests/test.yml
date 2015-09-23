@@ -1,0 +1,27 @@
+---
+- hosts: localhost
+  roles:
+    - role: ansible-role-pip-packages
+      pip_packages_install:
+        - virtualenv
+        - { name: bottle, version: 0.12.1 }
+        - { name: pep8, state: latest }
+      tags: ['pip-packages']
+
+    - role: ansible-role-pip-packages
+      pip_packages_remove:
+        - pep8
+      tags: ['pip-packages']
+
+    - role: ansible-role-pip-packages
+      pip_packages_install:
+        - pep8
+      pip_packages_default_install_state: latest
+      pip_packages_executable: pip3
+      tags: ['pip-packages-pip3']
+
+    - role: ansible-role-pip-packages
+      pip_packages_remove:
+        - pep8
+      pip_packages_executable: pip3
+      tags: ['pip-packages-pip3']

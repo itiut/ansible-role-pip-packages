@@ -1,0 +1,9 @@
+---
+- name: Install packages
+  pip:
+    name="{{ item.name | default(item) }}"
+    version="{{ item.version | default(omit) }}"
+    state="{{ item.state | default(pip_packages_default_install_state) }}"
+    executable="{{ pip_packages_executable | default(omit, true) }}"
+  with_items: pip_packages_install
+  when: pip_packages_install
