@@ -1,0 +1,7 @@
+---
+common:
+  build: .
+  volumes:
+    - ../:/ansible-role-pip-packages
+  working_dir: /ansible-role-pip-packages/tests
+  command: ansible-playbook test.yml -v
