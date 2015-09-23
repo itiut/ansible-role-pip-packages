@@ -65,7 +65,7 @@ Ensure that `virtualenv`, `bottle` (v0.12.1) and `pep8` (latest) are installed.
         - { name: pep8, state: latest }
 ```
 
-Ensure that `pep8` (latest) are installed by `pip3`.
+Ensure that `pep8` (latest) is installed by `pip3`.
 
 ```yaml
 - hosts: localhost
