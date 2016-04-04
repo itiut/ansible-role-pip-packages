@@ -4,5 +4,5 @@
     name="{{ item }}"
     state=absent
     executable="{{ pip_packages_executable | default(omit, true) }}"
-  with_items: pip_packages_remove
+  with_items: "{{ pip_packages_remove }}"
   when: pip_packages_remove
